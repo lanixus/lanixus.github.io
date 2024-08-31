@@ -14,54 +14,41 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
             color: white;
-            overflow: hidden;
-        }
-
-        .poster-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
             background: linear-gradient(-45deg, #8B0000, #FF0000, #8B0000, #FF0000);
             background-size: 400% 400%;
             animation: backgroundMove 15s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+
+        .poster-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .poster-content {
-            width: 90%;
-            height: 95%;
             background-image: url('https://images-na.ssl-images-amazon.com/images/I/91ehz6nxhZL._SY606_.jpg');
             background-size: cover;
             background-position: center;
-            position: relative;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .section {
-            position: absolute;
-            width: 45%;
             background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px;
+            padding: 15px;
             border-radius: 10px;
-            padding: 10px;
-            font-size: 0.8vw;
         }
 
-        .top-left { top: 10px; left: 10px; }
-        .top-right { top: 10px; right: 10px; }
-        .bottom-left { bottom: 10px; left: 10px; }
-        .bottom-right { bottom: 10px; right: 10px; }
-
         h2 {
-            margin-top: 0;
             color: #FF0000;
             text-align: center;
-            font-size: 1.2vw;
+            font-size: 1.2em;
+            margin-top: 0;
         }
 
         ul {
@@ -71,23 +58,23 @@
         }
 
         li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
         }
 
         .float-text {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 2vw;
+            text-align: center;
+            font-size: 1.5em;
             font-weight: bold;
             color: #FF0000;
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="poster-container">
         <div class="poster-content">
-            <div class="section top-left">
+            <div class="section">
                 <h2>People involved</h2>
                 <ul>
                     <li>1. Jaeden Martell (Bill Denbrough)</li>
@@ -100,7 +87,7 @@
                     <li>8. Bill Skarsgård (Pennywise)</li>
                 </ul>
             </div>
-            <div class="section top-right">
+            <div class="section">
                 <h2>Awards and nominations</h2>
                 <ul>
                     <li>• Golden Trailer Awards - Best Horror</li>
@@ -108,7 +95,7 @@
                     <li>• Washington DC Area Film Critics Association Awards - Best Youth Performance</li>
                 </ul>
             </div>
-            <div class="section bottom-left">
+            <div class="section">
                 <h2>Dates</h2>
                 <ul>
                     <li>• April 22, 2016: Film's release date announced</li>
@@ -120,7 +107,7 @@
                     <li>• September 21, 2017: Release in Argentina and Venezuela</li>
                 </ul>
             </div>
-            <div class="section bottom-right">
+            <div class="section">
                 <h2>Money</h2>
                 <ul>
                     <li>• Budget: $35 million of USD</li>
