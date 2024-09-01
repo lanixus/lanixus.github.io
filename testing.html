@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Movie Poster</title>
+    <title>IT Movie Poster with Balloon Interaction</title>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @keyframes backgroundMove {
@@ -20,6 +21,11 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes balloonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         body, html {
@@ -104,6 +110,30 @@
             animation: float 4s ease-in-out infinite;
         }
 
+        .balloon {
+            position: fixed;
+            font-size: 6em;
+            cursor: pointer;
+            user-select: none;
+            animation: balloonFloat 3s ease-in-out infinite;
+        }
+
+        .many-balloons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .many-balloons .balloon {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
         @media (min-width: 768px) {
             .poster-content {
                 display: flex;
@@ -165,5 +195,69 @@
             <div class="float-text">You'll float too.</div>
         </div>
     </div>
+
+    <script>
+        const popSound = new Audio("https://cdn.pixabay.com/audio/2022/03/10/audio_5b4d3bfb9e.mp3");
+        const laughSound = new Audio("https://cdn.pixabay.com/audio/2022/03/10/audio_cb83142004.mp3");
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.textContent = '🎈';
+            balloon.style.left = '50%';
+            balloon.style.top = '50%';
+            balloon.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(balloon);
+
+            balloon.addEventListener('click', () => {
+                balloon.remove();
+                popSound.play();
+                
+                setTimeout(() => {
+                    laughSound.play();
+                    createManyBalloons();
+                    
+                    setTimeout(() => {
+                        laughSound.play();
+                        setTimeout(removeManyBalloons, 2000);
+                    }, laughSound.duration * 1000);
+                }, popSound.duration * 1000);
+            });
+        }
+
+        function createManyBalloons() {
+            const manyBalloons = document.createElement('div');
+            manyBalloons.className = 'many-balloons';
+            document.body.appendChild(manyBalloons);
+
+            for (let i = 0; i < 50; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.textContent = '🎈';
+                balloon.style.left = `${Math.random() * 100}%`;
+                balloon.style.top = `${Math.random() * 100}%`;
+                balloon.style.animationDelay = `${Math.random() * 2}s`;
+                manyBalloons.appendChild(balloon);
+            }
+
+            setTimeout(() => {
+                manyBalloons.querySelectorAll('.balloon').forEach(balloon => {
+                    balloon.style.opacity = '1';
+                });
+            }, 100);
+        }
+
+        function removeManyBalloons() {
+            const manyBalloons = document.querySelector('.many-balloons');
+            if (manyBalloons) {
+                manyBalloons.querySelectorAll('.balloon').forEach(balloon => {
+                    balloon.style.opacity = '0';
+                });
+                setTimeout(() => manyBalloons.remove(), 1000);
+            }
+        }
+
+        setTimeout(createBalloon, 10000);
+    </script>
 </body>
 </html>
