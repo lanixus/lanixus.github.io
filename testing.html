@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Movie Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @keyframes backgroundMove {
             0% { background-position: 0% 50%; }
@@ -11,21 +12,33 @@
             100% { background-position: 0% 50%; }
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             color: white;
             background: linear-gradient(-45deg, #8B0000, #FF0000, #8B0000, #FF0000);
             background-size: 400% 400%;
             animation: backgroundMove 15s ease infinite;
+            overflow-x: hidden;
         }
 
         .poster-container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
+            perspective: 1000px;
         }
 
         .poster-content {
@@ -35,20 +48,33 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
         }
 
         .section {
-            background-color: rgba(255, 0, 0, 0.3);  /* Rojo con 30% de opacidad */
+            background-color: rgba(255, 0, 0, 0.3);
             margin: 20px;
             padding: 15px;
             border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 0, 0, 0.4);
         }
 
         h2 {
-            color: #FFD700;  /* Cambiado a dorado para mejor contraste */
+            color: #FFD700;
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-top: 0;
+            font-family: 'Creepster', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         ul {
@@ -60,22 +86,41 @@
         li {
             margin-bottom: 8px;
             font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(5px);
         }
 
         .float-text {
             text-align: center;
-            font-size: 1.5em;
+            font-size: 2em;
             font-weight: bold;
             color: #FF0000;
             padding: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);  /* Añadido para mejor legibilidad */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Creepster', cursive;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+            .poster-content {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .section {
+                width: calc(50% - 40px);
+            }
         }
     </style>
 </head>
 <body>
     <div class="poster-container">
         <div class="poster-content">
-            <div class="section">
+            <div class="section" style="animation-delay: 0.2s;">
                 <h2>People involved</h2>
                 <ul>
                     <li>1. Jaeden Martell (Bill Denbrough)</li>
@@ -88,7 +133,7 @@
                     <li>8. Bill Skarsgård (Pennywise)</li>
                 </ul>
             </div>
-            <div class="section">
+            <div class="section" style="animation-delay: 0.4s;">
                 <h2>Awards and nominations</h2>
                 <ul>
                     <li>• Golden Trailer Awards - Best Horror</li>
@@ -96,7 +141,7 @@
                     <li>• Washington DC Area Film Critics Association Awards - Best Youth Performance</li>
                 </ul>
             </div>
-            <div class="section">
+            <div class="section" style="animation-delay: 0.6s;">
                 <h2>Dates</h2>
                 <ul>
                     <li>• April 22, 2016: Film's release date announced</li>
@@ -108,7 +153,7 @@
                     <li>• September 21, 2017: Release in Argentina and Venezuela</li>
                 </ul>
             </div>
-            <div class="section">
+            <div class="section" style="animation-delay: 0.8s;">
                 <h2>Money</h2>
                 <ul>
                     <li>• Budget: $35 million of USD</li>
