@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liceo Nacional de Maipú - Excelencia Académica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: #0f1917;
+        }
+        .hero-section {
+            background-image: url('path/to/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        .achievement-card {
+            transition: transform 0.3s;
+        }
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="path/to/logo.png" alt="Liceo Nacional de Maipú" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Nuestro Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admision">Admisión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" id="inicio">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold">Liceo Nacional de Maipú</h1>
+            <p class="lead">Formando líderes para el futuro de Chile</p>
+            <a href="#admision" class="btn btn-primary btn-lg mt-3">Postula Ahora</a>
+        </div>
+    </section>
+
+    <section class="py-5" id="logros">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestros Logros</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card achievement-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-trophy fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Top 5 Nacional</h5>
+                            <p class="card-text">Entre los 5 mejores colegios de Chile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card achievement-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-graduation-cap fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">85% Ingreso Universidad</h5>
+                            <p class="card-text">De nuestros estudiantes ingresan a la universidad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card achievement-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">40 Puntajes Nacionales</h5>
+                            <p class="card-text">Obtenidos por nuestros estudiantes a la fecha</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card achievement-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">4to Lugar Nacional</h5>
+                            <p class="card-text">En ingreso a la Universidad de Chile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add more sections as needed -->
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Portales 2471, Maipú</p>
+                    <p><i class="fas fa-envelope"></i> contacto@liceonacionaldemaipu.cl</p>
+                    <p><i class="fas fa-phone"></i> (2) 3329 0255</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Redes Sociales</h5>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Centro de Padres</a></li>
+                        <li><a href="#" class="text-white">Centro de Estudiantes</a></li>
+                        <li><a href="#" class="text-white">Profesores</a></li>
+                        <li><a href="#" class="text-white">Egresados</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
