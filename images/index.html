@@ -1,1 +1,130 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscador de Vuelos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #56ccf2, #2f80ed);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .search-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .radio-group {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .radio-group input {
+      margin-right: 5px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #febb02;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e6a700;
+    }
+    .checkbox-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    .checkbox-group input {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <h1>Vuelos baratos con Aerolíneas Argentinas</h1>
+
+    <div class="radio-group">
+      <label><input type="radio" name="tipo" value="ida-vuelta" checked> Ida y vuelta</label>
+      <label><input type="radio" name="tipo" value="solo-ida"> Solo ida</label>
+      <label><input type="radio" name="tipo" value="multidestino"> Multidestino</label>
+    </div>
+
+    <div class="form-group">
+      <label for="origen">Origen</label>
+      <input type="text" id="origen" placeholder="Ciudad de origen">
+    </div>
+
+    <div class="form-group">
+      <label for="destino">Destino</label>
+      <input type="text" id="destino" placeholder="Ciudad de destino">
+    </div>
+
+    <div class="form-group">
+      <label for="ida">Ida</label>
+      <input type="date" id="ida">
+    </div>
+
+    <div class="form-group">
+      <label for="vuelta">Vuelta</label>
+      <input type="date" id="vuelta">
+    </div>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="alojamiento"> Buscar alojamiento en Booking</label>
+      <label><input type="checkbox" id="fechas-baratas"> Ver fechas más baratas</label>
+    </div>
+
+    <button onclick="buscarVuelos()">Buscar</button>
+  </div>
+
+  <script>
+    function buscarVuelos() {
+      const origen = document.getElementById("origen").value;
+      const destino = document.getElementById("destino").value;
+      const ida = document.getElementById("ida").value;
+      const vuelta = document.getElementById("vuelta").value;
+      const alojamiento = document.getElementById("alojamiento").checked;
+      const fechasBaratas = document.getElementById("fechas-baratas").checked;
+
+      // Aquí iría la llamada a la API de vuelos
+      alert(`Buscando vuelos de ${origen} a ${destino}.\nFecha de ida: ${ida}\nFecha de vuelta: ${vuelta}\nAlojamiento: ${alojamiento ? 'Sí' : 'No'}\nFechas más baratas: ${fechasBaratas ? 'Sí' : 'No'}`);
+    }
+  </script>
+
+</body>
+</html>
